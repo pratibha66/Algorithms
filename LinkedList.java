@@ -46,4 +46,25 @@ public class LinkedList{
 		}
 	}
 
+	public void removeDups(){
+		if(root == null){
+			return;
+		}
+		for(Node temp = root; temp != null; temp = temp.next){
+			for(Node temp2 = temp.next; temp2 != null;){
+				Node nextNode = temp2.next;
+				if(temp.payload == temp2.payload){
+					temp2.prev.next = temp2.next;
+					if(temp2.next != null){
+						temp2.next.prev = temp2.prev;
+					}
+					temp2.prev = null;
+					temp2.next = null;
+				}
+				temp2 = nextNode;
+			} 
+		}
+
+	}
+
 }
