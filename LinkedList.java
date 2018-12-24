@@ -67,4 +67,20 @@ public class LinkedList{
 
 	}
 
+	public int kthToLst(int k){
+		if(root == null){
+			throw new RuntimeException("LinkedList is empty");
+		}
+		Node first = root;
+		Node second = root;
+		for(int i = 0; i < k; i++){
+			second = second.next;
+		}
+		while(second.next != null){
+			first= first.next;
+			second = second.next;
+		}
+		return first.payload;
+	}
+
 }
