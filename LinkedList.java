@@ -83,4 +83,29 @@ public class LinkedList{
 		return first.payload;
 	}
 
+	private Node find(int payload){
+		for(Node n = root; n != null; n = n.next){
+			if(n.payload == payload){
+				return n;
+			}
+		}
+		return null;
+	}
+
+	public void deleteMiddle(int payload){
+		Node n = find(payload);
+		if(n == null || n == root || n == tail){
+			throw new RuntimeException("Not an appropriate payload, payload cannot be first and last and must be in the LinkedList");
+		}
+		Node prevNode = n;
+		while(n.next != null){
+			n.payload = n.next.payload;
+			prevNode = n;
+			n = n.next;
+		}
+		prevNode.next = null;
+		n.prev = null;
+		tail = prevNode;
+	}
+
 }
