@@ -108,4 +108,36 @@ public class LinkedList{
 		tail = prevNode;
 	}
 
+	public void partition(int num){
+		if(root == null || root.next == null){
+			return;
+		}
+		Node maintain = root;
+		for(Node n = root; n != null; n = n.next){
+			if(n.payload < num){
+				int temp = maintain.payload;
+				maintain.payload = n.payload;
+				n.payload = temp;
+				maintain = maintain.next;
+			}
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
