@@ -1,19 +1,6 @@
 public class LinkedList{
-	
-	class Node{
-		Node next;
-		Node prev;
-		int payload;
-		public Node(int n, Node next, Node prev){
-			this.payload= n;
-			this.next = next;
-			this.prev = prev;
-		}
-	}
-
-
-	private Node root = null;
-	private Node tail = null;
+	public Node root = null;
+	public Node tail = null;
 
 	public void insert(int n){
 		if(root == null){
@@ -123,21 +110,14 @@ public class LinkedList{
 
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	public LinkedList cloneLL(){
+		LinkedList result = new LinkedList();
+		for(Node n = root; n != null; n= n.next){
+			result.append(n.payload);
+		}
+		return result;
+	}
 }
+
+
