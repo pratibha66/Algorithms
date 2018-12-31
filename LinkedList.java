@@ -118,6 +118,34 @@ public class LinkedList{
 		}
 		return result;
 	}
+
+	public LinkedList reverse(){
+		if(root == null){
+			return new LinkedList();
+		}
+		LinkedList result = new LinkedList();
+		Node n = root;
+
+		while(n!= null){
+			result.insert(n.payload);
+			n = n.next;
+		}
+		return result;
+	}
+
+	public boolean isPalindrome(){
+		LinkedList toCompare = this.reverse();
+		Node n = root;
+		Node n1 = toCompare.root;
+		while(n != null){
+			if(n.payload != n1.payload){
+				return false;
+			}
+			n = n.next;
+			n1 = n1.next;
+		}
+		return true;
+	}
 }
 
 
