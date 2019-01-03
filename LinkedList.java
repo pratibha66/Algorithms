@@ -186,6 +186,24 @@ public class LinkedList{
 		return n;
 	}
 
+	public Node isCircular(){
+		if(root == null){
+			return root;
+		}
+		Node fast = root;
+		Node slow = root;
+		while(fast != slow){
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		Node first = root;
+		while(first != slow){
+			first = first.next;
+			slow = slow.next;
+		}
+		return first;
+	}
+
 	public boolean intersects(LinkedList l1, LinkedList l2){
 		if(l1 == null || l2 == null){
 			return false;
@@ -209,6 +227,7 @@ public class LinkedList{
 		}
 		return (n1!=null);
 	}
+
 }
 
 
