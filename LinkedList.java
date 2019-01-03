@@ -133,6 +133,26 @@ public class LinkedList{
 		return result;
 	}
 
+	public void inPlaceReverse(){
+		if(root == null || root.next == null){
+			return;
+		}
+		Node first = root;
+		Node second = root.next;
+		Node third = second.next;
+		first.next = null;
+		while(second != null){
+			second.next = first;
+			first = second;
+			second = third;
+			if(third != null){
+				third = third.next;
+			}
+		}
+		root = first;
+
+	}
+
 	public boolean isPalindrome(){
 		LinkedList toCompare = this.reverse();
 		Node n = root;

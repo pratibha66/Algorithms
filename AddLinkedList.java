@@ -57,6 +57,16 @@ public class AddLinkedList{
 		return result;
 	}
 
+	public static LinkedList addBackward(LinkedList l1, LinkedList l2){
+		l1.inPlaceReverse();
+		l2.inPlaceReverse();
+		LinkedList result = add(l1,l2);
+		l1.inPlaceReverse();
+		l2.inPlaceReverse();
+		result.inPlaceReverse();
+		return result;
+	}
+
 	public static void main(String [] args){
 		LinkedList l1 = new LinkedList();
 		LinkedList l2 = new LinkedList();
@@ -77,6 +87,20 @@ public class AddLinkedList{
 		l2.append(9);
 		result = add(l1,l2);
 		System.out.println("Carryover on last node");
+		result.printLL();
+
+		LinkedList l3 = new LinkedList();
+		LinkedList l4 = new LinkedList();
+		l3.append(7);
+		l3.append(8);
+		l3.append(9);
+		l3.append(9);
+		l4.append(2);
+		l4.append(3);
+		l4.append(4);
+		l4.append(1);
+		result = addBackward(l3,l4);
+		System.out.println("addBackward");
 		result.printLL();
  	}
 }
