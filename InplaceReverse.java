@@ -12,7 +12,5 @@ public class InplaceReverse{
 		ll.inPlaceReverse();
 		System.out.println("after");
 		ll.printLL();
-
-
 	}
 }

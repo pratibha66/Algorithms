@@ -166,6 +166,49 @@ public class LinkedList{
 		}
 		return true;
 	}
+
+	public int length(){
+	if(root = null){
+		return 0;
+	}
+	int result = 0;
+	for(Node n = root; n != null; n = n.next){
+		result++;
+	}
+	return result;
+	}
+
+	private Node getKthNode(int k){
+		Node n = null;
+		for(n = root; k != 0 ; n = n.next){
+			k--;
+		}
+		return n;
+	}
+
+	public boolean intersects(LinkedList l1, LinkedList l2){
+		if(l1 == null || l2 == null){
+			return false;
+		}
+		int length1 = l1.length();
+		int length2 = l2.length();
+		if(length1 == 0 || length2 == 0){
+			return false;
+		}
+		int diff = (length1 - length2);
+		Node n1 = l1.root;
+		Node n2 = l2.root;
+		if(diff > 0){
+			n1 = l1.getKthNode(diff);
+		}else{
+			n2 = l2.getKthNode(0-diff);
+		}
+		while(n1 != n2){
+			n1 = n1.next;
+			n2 = n2.next;
+		}
+		return (n1!=null);
+	}
 }
 
 
