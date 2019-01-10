@@ -18,6 +18,18 @@ public class StackTest{
 		System.out.println(isValidParenthesis("("));
 		System.out.println(isValidParenthesis(""));
 
+		MinStack minStack = new MinStack(10);
+		minStack.push(100);
+		minStack.push(4);
+		minStack.push(70);
+		minStack.push(1);
+		minStack.push(40);
+		minStack.push(0);
+		while(!minStack.isEmpty()){
+			System.out.println(minStack.minElement());
+			minStack.pop();
+		}
+
 	}
 
 	public static boolean isValidParenthesis(final String str){
